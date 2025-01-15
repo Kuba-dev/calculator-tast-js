@@ -1,14 +1,19 @@
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 300 to 800
-// <width>: Use a value from 75 to 100
+:root {
+  --color-dark-blue: #033540;
+  --color-blue: #015366;
+  --color-bluish-gray: #63898C;
+  --color-shade-of-the-sea: #A7D1D2;
+  --color-light-blue: #E0F4F5;
 
-.open-sans-<uniquifier > {
-  font-family: "Open Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings: "wdth" <width>;
-} */
+  --font-size-title: 22px;
+  --font-size-paragraph: 20px;
+  --font-size-display: 30px;
+
+  --font-weight-title: 700;
+  --font-weight-paragraph: 400;
+
+  --font-family-default: "Open Sans", serif;
+}
 
 .container {
   max-width: 970px;
@@ -20,57 +25,26 @@
 
 .app {
   margin-top: 30px;
-  border: 2px solid #033540;
+  border: 2px solid var(--color-dark-blue);
 }
-
-/* Светлая шапка */
-/* .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 80px;
-  border-bottom: none;
-  position: relative;
-} */
-
-/* .header::before {
-  position: absolute;
-  content: "";
-  display: block;
-  height: 1px;
-  width: 97%;
-  border-radius: 10px;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #a7d1d2;
-} */
-
-/* .header__title {
-  font-family: "Open Sans", serif;
-  font-weight: 700;
-  font-size: 22px;
-  font-style: normal;
-  margin-left: 35px;
-} */
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 80px;
-  background-color: #033540;
+  background-color: var(--color-dark-blue);
   border-bottom: none;
   position: relative;
 }
 
 .header__title {
-  font-family: "Open Sans", serif;
-  font-weight: 700;
-  font-size: 22px;
+  font-family: var(--font-family-default);
+  font-weight: var(--font-weight-title);
+  font-size: var(--font-size-title);
   font-style: normal;
   margin-left: 35px;
-  color: #E0F4F5;
+  color: var(--color-light-blue);
 }
 
 .header__icon {
@@ -109,19 +83,17 @@
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  background: #a7d1d2;
+  background: var(--color-shade-of-the-sea);
 }
 
 .calculator__display-text {
   overflow: hidden;
   display: flex;
   justify-content: flex-end;
-  margin-right: 30px;
-  margin-left: 30px;
-  font-family: "Open Sans", serif;
-  font-weight: 400;
-  font-size: 30px;
-  font-style: normal;
+  margin: 0 30px 0 30px;
+  font-family: var(--font-family-default);
+  font-weight: var(--font-weight-paragraph);
+  font-size: var(--font-size-display);
   padding-top: 35px;
   padding-bottom: 35px;
 }
@@ -140,24 +112,24 @@
   width: 60px;
   height: 60px;
   border-radius: 20%;
-  border: 1px solid #a7d1d2;
-  font-family: "Open Sans", serif;
+  border: 1px solid var(--color-shade-of-the-sea);
+  font-family: var(--font-family-default);
   font-weight: 500;
-  font-size: 25px;
+  font-size: var(--font-size-title);
   font-style: normal;
-  background: #e0f4f5;
+  background: var(--color-light-blue);
   transition: all 0.3s ease;
 }
 
 .calculator__keyboard-btn:hover {
-  background: #a7d1d2;
+  background: var(--color-shade-of-the-sea);
   transition: all 0.2s ease;
 }
 
 .calculator__keyboard-btn:active {
   box-shadow: 4px 4px 12px 5px rgba(99, 137, 140, 0.2);
   transition: ease all 0.1s;
-  background: #63898c;
+  background: var(--color-bluish-gray);
 }
 
 .history {
@@ -173,7 +145,7 @@
   width: 1px;
   border-radius: 10px;
   top: 50%;
-  background: #a7d1d2;
+  background: var(--color-shade-of-the-sea);
   transform: translateY(-50%);
 }
 
@@ -181,10 +153,10 @@
   height: 5%;
   text-align: center;
   padding-top: 10px;
-  padding-bottom: 5px;
-  font-family: "Open Sans", serif;
+  padding-bottom: 30px;
+  font-family: var(--font-family-default);
   font-weight: 500;
-  font-size: 22px;
+  font-size: var(--font-size-title);
   font-style: normal;
   position: relative;
 }
@@ -199,7 +171,7 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  background: #a7d1d2;
+  background: var(--color-shade-of-the-sea);
 }
 
 .history__list {
@@ -207,7 +179,7 @@
   height: calc(95% - 35px);
   margin-top: 20px;
   margin-left: 23px;
-  scrollbar-color: #015366 white;
+  scrollbar-color: var(--color-blue) white;
   scrollbar-width: thin;
 }
 
@@ -222,8 +194,8 @@
 .history__list-item {
   list-style-type: none;
   margin-bottom: 10px;
-  font-family: "Open Sans", serif;
-  font-weight: 400;
-  font-size: 20px;
+  font-family: var(--font-family-default);
+  font-weight: var(--font-weight-paragraph);
+  font-size: var(--font-size-paragraph);
   font-style: normal;
 }
