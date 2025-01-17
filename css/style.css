@@ -1,4 +1,5 @@
 :root {
+  --color-double-dark-blue: #01262e;
   --color-dark-blue: #033540;
   --color-blue: #015366;
   --color-bluish-gray: #63898C;
@@ -36,6 +37,30 @@
 
   --border-radius-size-m: 10px;
 }
+
+body {
+  transition: background-color 0.3s ease;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-theme .button {
+  background-color: var(--color-dark-blue);
+}
+
+.dark-theme .button:hover {
+  background-color: var(--color-double-dark-blue);
+  transition: all var(--transition-duration-min) ease;
+}
+
 
 .button:hover {
   background: var(--color-shade-of-the-sea);

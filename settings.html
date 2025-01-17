@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="light-theme">
     <div class="container">
       <div class="app">
         <header class="header">
@@ -42,9 +42,15 @@
                 <button class="settings__reset-btn button">reset</button>
               </li>
               <li class="settings__list-item">
-                <button class="settings__change-theme-btn settings__change-theme-btn--active">light</button>
+                <button
+                  class="settings__change-theme-btn button settings__change-theme-btn--active"
+                  id="light-theme-btn"
+                >
+                  light
+                </button>
                 <button
                   class="settings__change-theme-btn button"
+                  id="dark-theme-btn"
                 >
                   dark
                 </button>
@@ -54,6 +60,10 @@
         </main>
       </div>
     </div>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/settings.js"></script>
+    <script type="module" src="js/const.js"></script>
+    <script type="module" src="js/clickHandler.js"></script>
+    <script type="module" src="js/signChangeLogic.js"></script>
+    <script type="module" src="js/clickHandlerChangeTheme.js"></script>
   </body>
 </html>
