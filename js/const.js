@@ -13,4 +13,5 @@ export const digitsOnTheKeyboard = [
 ];
 export const signOnTheKeyboard = ["*", "/", "-", "+", "%"];
 export const bracketsOnTheKeyboard = ["(", ")"];
-export const signChangeTemplate = /^\(-.+\)$/; // (-X)
+export const signChangeRegex = /^\(-.+\)$/; // (-X)
+export const reverseSignChangeRegex = /^\(-(.+?)\)$/; // (-(X))
