@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/settings.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="app">
+        <header class="header">
+          <h3 class="header__title">Calculator App</h3>
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__list-item">
+                <a class="menu__list-item-link" href="index.html">Home</a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  class="menu__list-item-link menu__list-item-link--active"
+                  href="#"
+                  >Settings</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main class="content">
+          <section class="settings">
+            <ul class="settings__list">
+              <li class="settings__list-item">
+                <button class="settings__reset-btn button">reset</button>
+              </li>
+              <li class="settings__list-item">
+                <button class="settings__change-theme-btn settings__change-theme-btn--active">light</button>
+                <button
+                  class="settings__change-theme-btn button"
+                >
+                  dark
+                </button>
+              </li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

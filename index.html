@@ -19,11 +19,16 @@
       <div class="app">
         <header class="header">
           <h3 class="header__title">Calculator App</h3>
-          <img
-            class="header__icon"
-            src="assets/image/icon-calc.svg"
-            alt="icon calculator"
-          />
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__list-item"> 
+                <a class="menu__list-item-link menu__list-item-link--active" href="#">Home</a>
+              </li>
+              <li class="menu__list-item">
+                <a class="menu__list-item-link" href="settings.html">Settings</a>
+              </li>
+            </ul>  
+          </nav>
         </header>
 
         <main class="content">
@@ -35,47 +40,43 @@
             </div>
             <div class="calculator__keyboard">
               <div class="calculator__keyboard-button">
-                <button class="calculator__keyboard-btn" id="clean">C</button>
-                <button class="calculator__keyboard-btn" id="seven">7</button>
-                <button class="calculator__keyboard-btn" id="eight">8</button>
-                <button class="calculator__keyboard-btn" id="nine">9</button>
-                <button class="calculator__keyboard-btn" id="multiply">
+                <button class="calculator__keyboard-btn button" id="clean">C</button>
+                <button class="calculator__keyboard-btn button" id="seven">7</button>
+                <button class="calculator__keyboard-btn button" id="eight">8</button>
+                <button class="calculator__keyboard-btn button" id="nine">9</button>
+                <button class="calculator__keyboard-btn button" id="multiply">
                   *
                 </button>
-                <button class="calculator__keyboard-btn" id="remainder">
+                <button class="calculator__keyboard-btn button" id="remainder">
                   %
                 </button>
               </div>
               <div class="calculator__keyboard-button">
-                <button class="calculator__keyboard-btn" id="minus">-</button>
-                <button class="calculator__keyboard-btn" id="four">4</button>
-                <button class="calculator__keyboard-btn" id="five">5</button>
-                <button class="calculator__keyboard-btn" id="six">6</button>
-                <button class="calculator__keyboard-btn" id="divide">/</button>
-                <button class="calculator__keyboard-btn" id="zero">+-</button>
+                <button class="calculator__keyboard-btn button" id="minus">-</button>
+                <button class="calculator__keyboard-btn button" id="four">4</button>
+                <button class="calculator__keyboard-btn button" id="five">5</button>
+                <button class="calculator__keyboard-btn button" id="six">6</button>
+                <button class="calculator__keyboard-btn button" id="divide">/</button>
+                <button class="calculator__keyboard-btn button" id="zero">+-</button>
               </div>
               <div class="calculator__keyboard-button">
-                <button class="calculator__keyboard-btn" id="plus">+</button>
-                <button class="calculator__keyboard-btn" id="one">1</button>
-                <button class="calculator__keyboard-btn" id="two">2</button>
-                <button class="calculator__keyboard-btn" id="three">3</button>
-                <button class="calculator__keyboard-btn" id="equals">=</button>
-                <button class="calculator__keyboard-btn" id="theme">T</button>
+                <button class="calculator__keyboard-btn button" id="plus">+</button>
+                <button class="calculator__keyboard-btn button" id="one">1</button>
+                <button class="calculator__keyboard-btn button" id="two">2</button>
+                <button class="calculator__keyboard-btn button" id="three">3</button>
+                <button class="calculator__keyboard-btn button" id="equals">=</button>
               </div>
               <div class="calculator__keyboard-button">
-                <button class="calculator__keyboard-btn" id="dot">.</button>
-                <button class="calculator__keyboard-btn" id="left-parenthesis">
+                <button class="calculator__keyboard-btn button" id="dot">.</button>
+                <button class="calculator__keyboard-btn button" id="left-parenthesis">
                   (
                 </button>
-                <button class="calculator__keyboard-btn" id="zero">0</button>
-                <button class="calculator__keyboard-btn" id="right parenthesis">
+                <button class="calculator__keyboard-btn button" id="zero">0</button>
+                <button class="calculator__keyboard-btn button" id="right parenthesis">
                   )
                 </button>
-                <button class="calculator__keyboard-btn" id="clean-entry">
+                <button class="calculator__keyboard-btn button" id="clean-entry">
                   CE
-                </button>
-                <button class="calculator__keyboard-btn" id="clear-history">
-                  CH
                 </button>
               </div>
             </div>
