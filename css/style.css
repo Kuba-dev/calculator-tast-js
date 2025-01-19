@@ -38,7 +38,13 @@
   --header-size: 80px;
   --button-keyboard-calc-size: 60px;
   --button-size-xl: 450px;
+  --button-size-xl-phone: 350px;
+  --button-size-x-phone: 300px;
+  --button-size-xxl-phone: 200px;
   --button-size-m: 210px;
+  --button-size-m-phone: 160px;
+  --button-size-l-phone: 140px;
+  --button-size-xxxl-phone: 95px;
   --button-height-size-m: 50px;
 
   --border-radius-size-m: 10px;
@@ -119,6 +125,15 @@
   justify-content: center;
   border-top: none;
   height: var(--content-size);
+}
+
+.content__setting {
+  display: flex;
+  justify-content: center;
+  border-top: none;
+  height: var(--content-size);
+  margin-right: 35px;
+  margin-left: 35px;
 }
 
 .calculator {
@@ -241,10 +256,11 @@
 
 .settings__list-item {
  margin-top: var(--gap-size-m);
+ display: flex;
+ justify-content: space-between;
 }
 
 .settings__reset-btn {
-  margin-left: var(--gap-size-m);
   width: var(--button-size-xl);
   height: var(--button-height-size-m);
   border-radius: var(--border-radius-size-m);
@@ -257,8 +273,6 @@
 }
 
 .settings__change-theme-btn {
-  margin-left: var(--gap-size-m);
-  margin-right: var(--gap-size-xl);
   width: var(--button-size-m);
   height: var(--button-height-size-m);
   border-radius: var(--border-radius-size-m);
@@ -303,6 +317,14 @@
     width: calc(100% - (var(--gap-size-xs) * 2));
     margin-left: var(--gap-size-xs);
     margin-right: var(--gap-size-xs);
+  }
+
+  .settings__reset-btn {
+    width: var(--button-size-xl-phone);
+  }
+
+  .settings__change-theme-btn {
+    width: var(--button-size-m-phone);
   }
 }
 
@@ -372,6 +394,15 @@
     width: 40px;
     font-size: var(--font-size-title-phone);
   }
+  .settings__reset-btn {
+    width: var(--button-size-x-phone);
+    font-size: var(--font-size-title-phone-l);
+  }
+
+  .settings__change-theme-btn {
+    width: var(--button-size-l-phone);
+    font-size: var(--font-size-title-phone-l);
+  }
 }
 
 @media (max-width: 380px) {
@@ -386,6 +417,7 @@
 
   .menu__list-item-link {
     font-size: var(--font-size-paragraph-phone-xl);
+    margin-left: var(--gap-size-xxs);
   }
 
   .history__title {
@@ -410,5 +442,19 @@
     height: 40px;
     width: 40px;
     font-size: var(--font-size-title-phone-xl);
+  }  
+  
+  .settings__reset-btn {
+    width: var(--button-size-xxl-phone);
+    font-size: var(--font-size-title-phone-xl);
+  }
+
+  .settings__change-theme-btn {
+    width: var(--button-size-xxxl-phone);
+    font-size: var(--font-size-title-phone-xl);
+  }
+  
+  .settings__list-item {
+    margin-top: var(--gap-size-xxs);
   }
 }
