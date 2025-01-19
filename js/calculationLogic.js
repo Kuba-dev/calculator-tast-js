@@ -1,5 +1,4 @@
 import {
-  signOnTheKeyboard,
   phraseIncorrectExpression,
   divisionByZeroPhrase,
   divisionIntoTokensRegex,

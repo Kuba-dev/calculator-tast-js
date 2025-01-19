@@ -7,7 +7,11 @@
   --color-shadow: #63898C33;
 
   --font-size-title: 22px;
+  --font-size-title-phone: 16px;
+  --font-size-title-phone-xl: 12px;
   --font-size-paragraph: 20px;
+  --font-size-paragraph-phone: 14px;
+  --font-size-paragraph-phone-xl: 11px;
   --font-size-display: var(--gap-size-m);
 
   --font-weight-title: 700;
@@ -18,12 +22,15 @@
   --transition-duration-min: 0.2s;
   --transition-duration-max: 0.3s;
 
+  --gap-size-xl: 45px;
   --gap-size-default: 35px;
   --gap-size-m: 30px;
   --gap-size-s: 25px;
   --gap-size-xs: 20px;
   --gap-size-xxs: 15px;
   --gap-size-xxxs: 10px;
+  --gap-size-xxxxs: 5px;
+  --gap-size-xxxxxs: 3px;
 
   --content-size: 500px;
   --display-size: 100px;
@@ -35,6 +42,8 @@
   --button-height-size-m: 50px;
 
   --border-radius-size-m: 10px;
+
+  --underline-width-default: 97%;
 }
 
 .button:hover {
@@ -97,7 +106,7 @@
  position: absolute;
  content: "";
  height: 1px;
- width: 97%;
+ width: var(--underline-width-default);;
  border-radius: var(--border-radius-size-m);
  bottom: 0px;
  left: 50%;
@@ -125,7 +134,7 @@
   position: absolute;
   content: "";
   height: 1px;
-  width: 97%;
+  width: var(--underline-width-default);;
   border-radius: var(--border-radius-size-m);
   bottom: 0px;
   left: 50%;
@@ -148,17 +157,20 @@
 .calculator__keyboard {
   height: var(--keyboard-size);
   display: grid;
+  width: calc(100% - (var(--gap-size-default) * 2));
+  margin-right: var(--gap-size-default);
+  margin-left: var(--gap-size-default);
 }
 
 .calculator__keyboard-button {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   padding-top: var(--gap-size-xxs);
+  justify-items: center;
   
 }
 
 .calculator__keyboard-btn {
-  margin-left: var(--gap-size-m);
   width: var(--button-keyboard-calc-size);
   height: var(--button-keyboard-calc-size);
   border-radius: var(--border-radius-size-m);
@@ -179,7 +191,7 @@
   position: absolute;
   content: "";
   display: block;
-  height: 97%;
+  height: var(--underline-width-default);;
   width: 1px;
   border-radius: var(--border-radius-size-m);
   top: 50%;
@@ -246,6 +258,7 @@
 
 .settings__change-theme-btn {
   margin-left: var(--gap-size-m);
+  margin-right: var(--gap-size-xl);
   width: var(--button-size-m);
   height: var(--button-height-size-m);
   border-radius: var(--border-radius-size-m);
@@ -264,4 +277,138 @@
   background-color: var(--color-shade-of-the-sea);
 }
 
+@media (hover: hover) {
+  button:hover{
+    background: var(--color-shade-of-the-sea);
+  }
+}
 
+@media (max-width: 980px) {
+  .content {
+    display: inline;
+  }
+  .calculator {
+    width: 100%;
+  }
+  .history {
+    width: 100%;
+  }
+  .history__title::after {
+    width: var(--underline-width-default);;
+  }
+}
+
+@media (max-width: 700px) {
+  .calculator__keyboard {
+    width: calc(100% - (var(--gap-size-xs) * 2));
+    margin-left: var(--gap-size-xs);
+    margin-right: var(--gap-size-xs);
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    height: 60px;
+  }
+
+  .header__title {
+    font-size: var(--font-size-title-phone);
+    margin-left: var(--gap-size-xxs);
+  }
+
+  .menu__list-item-link {
+    font-size: var(--font-size-paragraph-phone);
+  }
+
+  .calculator__display {
+    height: 60px;
+  }
+
+  .calculator__display-text {
+    padding-bottom: var(--gap-size-xxxs);
+    padding-top: var(--gap-size-xxxs);
+    font-size: var(--font-size-title-phone);
+    height: 100%;
+    align-items: center;
+  }
+
+  .calculator__keyboard {
+    width: calc(100% - (var(--gap-size-xxxs) * 2));
+    margin-left: var(--gap-size-xxxs);
+    margin-right: var(--gap-size-xxxs);
+    grid-auto-rows: 55px;
+    max-height: 250px;
+    position: relative;
+  }
+
+  .calculator__keyboard-button {
+    padding-top: var(--gap-size-xxs);
+    height: 55px;
+  }
+
+  .history::before {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 97%;
+    border-radius: var(--border-radius-size-m);
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-shade-of-the-sea);
+  }
+
+  .history__title {
+    padding-bottom: var(--gap-size-xxxxs);
+    font-size: var(--font-size-title-phone);
+  }
+
+  .history__list-item {
+    font-size: var(--font-size-paragraph-phone);
+  }
+
+  .calculator__keyboard-btn {
+    height: 40px;
+    width: 40px;
+    font-size: var(--font-size-title-phone);
+  }
+}
+
+@media (max-width: 380px) {
+  .header {
+    height: 50px;
+  }
+
+  .header__title {
+    font-size: var(--font-size-title-phone-xl);
+    margin-left: var(--gap-size-xxxs);
+  }
+
+  .menu__list-item-link {
+    font-size: var(--font-size-paragraph-phone-xl);
+  }
+
+  .history__title {
+    padding-bottom: var(--gap-size-xxxxxs);
+    font-size: var(--font-size-title-phone-xl);
+  }
+
+  .history__list-item {
+    font-size: var(--font-size-paragraph-phone-xl);
+  }
+
+  .calculator__keyboard {
+    width: calc(100% - (var(--gap-size-xxxs) * 2));
+    margin-left: var(--gap-size-xxxs);
+    margin-right: var(--gap-size-xxxs);
+    grid-auto-rows: 50px;
+    max-height: 225px;
+    position: relative;
+  }
+
+  .calculator__keyboard-btn {
+    height: 40px;
+    width: 40px;
+    font-size: var(--font-size-title-phone-xl);
+  }
+}
