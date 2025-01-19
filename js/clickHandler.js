@@ -1,14 +1,11 @@
 import {
   digitsOnTheKeyboard,
   signOnTheKeyboard,
-  bracketsOnTheKeyboard,
-  phraseIncorrectExpression,
-  divisionByZeroPhrase,
+  bracketsOnTheKeyboard
 } from "./const.js";
-import { changeSign } from "./signChangeLogic.js";
-import {
-  getCalcResult
-} from "./calculationLogic.js";
+import { changeSign } from "./utils/signChangeLogic.js";
+import { getCalcResult } from "./calculationLogic.js";
+import { isInvalidLine } from "./utils/zeroCheck.js";
 
 const display = document.querySelector(".calculator__display-text");
 const historyList = document.querySelector(".history__list");
@@ -31,10 +28,7 @@ export function handleClick(event) {
   if (digitsOnTheKeyboard.includes(key)) {
     if (display.textContent === "0" && key !== ".") {
       display.textContent = key;
-    } else if (
-      display.textContent === phraseIncorrectExpression ||
-      display.textContent === divisionByZeroPhrase
-    ) {
+    } else if (isInvalidLine(display.textContent)) {
       display.textContent = key;
     } else {
       display.textContent += key;
@@ -49,10 +43,7 @@ export function handleClick(event) {
       )
     ) {
       display.textContent = display.textContent.slice(0, -1) + key;
-    } else if (
-      display.textContent === phraseIncorrectExpression ||
-      display.textContent === divisionByZeroPhrase
-    ) {
+    } else if (isInvalidLine(display.textContent)) {
       display.textContent = key;
     }
 
@@ -67,10 +58,7 @@ export function handleClick(event) {
 
   switch (key) {
     case "C":
-      if (
-        display.textContent === phraseIncorrectExpression ||
-        display.textContent === divisionByZeroPhrase
-      ) {
+      if (isInvalidLine(display.textContent)) {
         display.textContent = "";
       } else {
         display.textContent = display.textContent.slice(0, -1);

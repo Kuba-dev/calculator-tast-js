@@ -4,25 +4,19 @@ import {
   divisionIntoTokensRegex,
   regexOpen,
   regexClose,
+  extraSpacesRegex,
+  precedence
 } from "./const.js";
 
 function addMultiplicationBetweenNumberAndParenthesis(expression) {
   let modifiedExpression = expression.replace(regexOpen, "$1 * (");
-  modifiedExpression = modifiedExpression.replace(regexClose, ")*$3");
-  return modifiedExpression.replace(/\s+/g, "");
+  modifiedExpression = modifiedExpression.replace(regexClose, ")*$2");
+  return modifiedExpression.replace(extraSpacesRegex, "");
 }
 
 function getReversePolishNotation(expression) {
   const output = [];
   const stack = [];
-  const precedence = {
-    "+": 1,
-    "-": 1,
-    "*": 2,
-    "/": 2,
-    "%": 2,
-    "(": 0,
-  };
   const notFinishedTokens = expression.match(divisionIntoTokensRegex);
   const tokens = [];
 
