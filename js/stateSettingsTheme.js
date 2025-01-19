@@ -1,22 +1,37 @@
-export const lightThemeBtn = document.querySelector("#light-theme-btn");
-export const darkThemeBtn = document.querySelector("#dark-theme-btn");
+import { lightThemeBtn, darkThemeBtn } from "./const.js";
 
-const theme = localStorage.getItem("theme");
-switch (theme) {
-  case "dark-theme":
-    darkThemeBtn.classList.add("settings__change-theme-btn--active");
-    lightThemeBtn.classList.remove("settings__change-theme-btn--active");
+let switches = document.getElementsByClassName('settings__change-theme-btn');
+let style = localStorage.getItem('theme');
 
-    document.body.classList.remove("light-theme");
-    document.body.classList.add("dark-theme");
-    break;
-  case "light-theme":
+if (style == null) {
+  setTheme('light');
+} else {
+  setTheme(style);
+  if (style === 'light') {
     lightThemeBtn.classList.add("settings__change-theme-btn--active");
     darkThemeBtn.classList.remove("settings__change-theme-btn--active");
+  } else {
+    darkThemeBtn.classList.add("settings__change-theme-btn--active");
+    lightThemeBtn.classList.remove("settings__change-theme-btn--active");
+  }
+}
 
-    document.body.classList.remove("dark-theme");
-    document.body.classList.add("light-theme");
-    break;
-  default:
-    break;
+for (let i of switches) {
+  i.addEventListener('click', function () {
+    let theme = this.dataset.theme;
+    setTheme(theme);
+  });
+}
+
+export function setTheme(theme) {
+  if (theme == 'light') {
+    document.getElementById('switcher-id').href = '../css/theme/light.css';
+    lightThemeBtn.classList.add("settings__change-theme-btn--active");
+    darkThemeBtn.classList.remove("settings__change-theme-btn--active");
+  } else if (theme == 'dark') {
+    document.getElementById('switcher-id').href = '../css/theme/dark.css';
+    darkThemeBtn.classList.add("settings__change-theme-btn--active");
+    lightThemeBtn.classList.remove("settings__change-theme-btn--active");
+  }
+  localStorage.setItem('theme', theme);
 }

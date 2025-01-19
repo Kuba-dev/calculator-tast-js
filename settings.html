@@ -14,9 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" id="switcher-id" href="">
   </head>
   <script type="module" src="js/stateSettingsTheme.js"></script>
-  <body class="light-theme">
+  <body>
     <div class="container">
       <div class="app">
         <header class="header">
@@ -45,12 +46,14 @@
               <li class="settings__list-item">
                 <button
                   class="settings__change-theme-btn button settings__change-theme-btn--active"
+                  data-theme="light"
                   id="light-theme-btn"
                 >
                   light
                 </button>
                 <button
                   class="settings__change-theme-btn button"
+                  data-theme="dark"
                   id="dark-theme-btn"
                 >
                   dark
@@ -63,8 +66,6 @@
     </div>
     <script type="module" src="js/settings.js"></script>
     <script type="module" src="js/const.js"></script>
-    <script type="module" src="js/clickHandler.js"></script>
     <script type="module" src="js/signChangeLogic.js"></script>
-    <script type="module" src="js/clickHandlerChangeTheme.js"></script>
   </body>
 </html>
