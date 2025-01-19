@@ -49,6 +49,11 @@ export function handleClick(event) {
       )
     ) {
       display.textContent = display.textContent.slice(0, -1) + key;
+    } else if (
+      display.textContent === phraseIncorrectExpression ||
+      display.textContent === divisionByZeroPhrase
+    ) {
+      display.textContent = key;
     }
 
     if (

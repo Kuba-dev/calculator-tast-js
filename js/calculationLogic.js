@@ -1,5 +1,4 @@
 import {
-  signOnTheKeyboard,
   phraseIncorrectExpression,
   divisionByZeroPhrase,
   divisionIntoTokensRegex,
@@ -24,7 +23,20 @@ function getReversePolishNotation(expression) {
     "%": 2,
     "(": 0,
   };
-  const tokens = expression.match(divisionIntoTokensRegex);
+  const notFinishedTokens = expression.match(divisionIntoTokensRegex);
+  const tokens = [];
+
+  for (let i = 0; i < notFinishedTokens.length; i++) {
+    if (notFinishedTokens[i] === "(" && notFinishedTokens[i + 1] === "-" && notFinishedTokens[i + 3] === ")") {
+      tokens.push(tokens[i]);
+      tokens.push(tokens[i + 1] + notFinishedTokens[i + 2]);
+      tokens.push(tokens[i + 3]);
+      i += 3;
+      break;
+    }
+    tokens.push(notFinishedTokens[i]);
+  }
+
   for (const token of tokens) {
     if (!isNaN(token)) {
       output.push(token);
@@ -87,6 +99,7 @@ function calcReversePolishNotation(rpn) {
     }
   }
   if (stack.length !== 1 || isNaN(stack[0])) {
+    console.log(stack)
     return phraseIncorrectExpression;
   }
   return stack[0];
