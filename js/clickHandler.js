@@ -5,12 +5,12 @@ import {
 } from "./const.js";
 import { changeSign } from "./utils/signChangeLogic.js";
 import { getCalcResult } from "./calculationLogic.js";
-import { isInvalidLine } from "./utils/zeroCheck.js";
+import { isInvalidLine } from "./utils/isInvalidLine.js";
 import { dotsCheck } from "./utils/dotsCheck.js";
 import { doubleDotsCheck } from "./utils/doubleDotsCheck.js";
+import { addHistory } from "./historyCalc.js";
 
 const display = document.querySelector(".calculator__display-text");
-const historyList = document.querySelector(".history__list");
 
 export function handleClick(event) {
   if (
@@ -80,8 +80,9 @@ export function handleClick(event) {
       display.innerHTML = "";
       break;
     case "=":
-      historyList.innerHTML += `<li class="history__list-item">${display.textContent}</li>`;
-      display.textContent = getCalcResult(display.textContent);
+      const result = getCalcResult(display.textContent);
+      addHistory(display.textContent, result);
+      display.textContent = result;
       break;
     case "+-":
       display.textContent = changeSign(display.textContent);
