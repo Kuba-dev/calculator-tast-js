@@ -1,4 +1,4 @@
-:root {
+
   --color-button-hover: #01262e;
   --color-primary: #033540;
   --color-button-active: #63898C;
@@ -6,6 +6,7 @@
   --color-second: #E0F4F5;
   --color-shadow: #63898C33;
   --color-background: #fff;
+
 
   --font-size-title: 22px;
   --font-size-paragraph: 20px;
@@ -45,6 +46,7 @@
 .button:active {
   box-shadow: 4px 4px 12px 5px var(--color-shadow);
   transition: ease all var(--transition-duration-min);
+  background: var(--color-bluish-gray);
 }
 
 .container {
@@ -142,6 +144,7 @@
   font-size: var(--font-size-display);
   padding-top: var(--gap-size-m);
   padding-bottom: var(--gap-size-m);
+  white-space: nowrap;
 }
 
 .calculator__keyboard {
@@ -153,7 +156,6 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   padding-top: var(--gap-size-xxs);
-  
 }
 
 .calculator__keyboard-btn {
@@ -227,7 +229,7 @@
 }
 
 .settings__list-item {
- margin-top: var(--gap-size-m);
+  margin-top: var(--gap-size-m);
 }
 
 .settings__reset-btn {
@@ -262,5 +264,3 @@
   pointer-events: none;
   background-color: var(--color-additional);
 }
-
-
