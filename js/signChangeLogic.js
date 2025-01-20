@@ -1,4 +1,4 @@
-import { signOnTheKeyboard, signChangeRegex, reverseSignChangeRegex } from "./const.js";
+import { signOnTheKeyboard, signChangeRegex, reverseSignChangeRegex, negativeSignChangeRegex } from "./const.js";
 
 export function changeSign(string) {
   if (signOnTheKeyboard.includes(string[string.length - 1])) {
@@ -28,6 +28,15 @@ export function changeSign(string) {
       .slice(-2)
       .join("")
       .match(reverseSignChangeRegex)[1]; // (-(X))
+    numberArray[newNumberArrayLength - 2] = changedNumber;
+    numberArray.length -= 1;
+    return numberArray.join("");
+  }
+
+  if (negativeSignChangeRegex.test(numberArray.slice(-2).join(""))) {
+    const changedNumber = numberArray
+    .slice(-2)
+    .join("") * -1;
     numberArray[newNumberArrayLength - 2] = changedNumber;
     numberArray.length -= 1;
     return numberArray.join("");

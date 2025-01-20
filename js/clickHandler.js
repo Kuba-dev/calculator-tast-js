@@ -2,8 +2,13 @@ import {
   digitsOnTheKeyboard,
   signOnTheKeyboard,
   bracketsOnTheKeyboard,
+  phraseIncorrectExpression,
+  divisionByZeroPhrase,
 } from "./const.js";
 import { changeSign } from "./signChangeLogic.js";
+import {
+  getCalcResult
+} from "./calculationLogic.js";
 
 const display = document.querySelector(".calculator__display-text");
 const historyList = document.querySelector(".history__list");
@@ -14,7 +19,8 @@ export function handleClick(event) {
       document.querySelector(".calculator__keyboard").classList[0] ||
     event.target.classList[0] ===
       document.querySelector(".calculator__keyboard-button").classList[0]
-  ) return;
+  )
+    return;
 
   const key = event.target.textContent;
 
@@ -23,7 +29,16 @@ export function handleClick(event) {
   }
 
   if (digitsOnTheKeyboard.includes(key)) {
-    display.textContent += key;
+    if (display.textContent === "0" && key !== ".") {
+      display.textContent = key;
+    } else if (
+      display.textContent === phraseIncorrectExpression ||
+      display.textContent === divisionByZeroPhrase
+    ) {
+      display.textContent = key;
+    } else {
+      display.textContent += key;
+    }
   }
 
   if (signOnTheKeyboard.includes(key)) {
@@ -47,17 +62,21 @@ export function handleClick(event) {
 
   switch (key) {
     case "C":
-      display.textContent = display.textContent.slice(0, -1);
+      if (
+        display.textContent === phraseIncorrectExpression ||
+        display.textContent === divisionByZeroPhrase
+      ) {
+        display.textContent = "";
+      } else {
+        display.textContent = display.textContent.slice(0, -1);
+      }
       break;
     case "CE":
-      historyList.innerHTML = "";
       display.innerHTML = "";
-      break;
-    case "CH":
-      historyList.innerHTML = "";
       break;
     case "=":
       historyList.innerHTML += `<li class="history__list-item">${display.textContent}</li>`;
+      display.textContent = getCalcResult(display.textContent);
       break;
     case "+-":
       display.textContent = changeSign(display.textContent);
