@@ -1,10 +1,10 @@
 :root {
   --color-dark-blue: #033540;
   --color-blue: #015366;
-  --color-bluish-gray: #63898C;
-  --color-shade-of-the-sea: #A7D1D2;
-  --color-light-blue: #E0F4F5;
-  --color-shadow: #63898C33;
+  --color-bluish-gray: #63898c;
+  --color-shade-of-the-sea: #a7d1d2;
+  --color-light-blue: #e0f4f5;
+  --color-shadow: #63898c33;
 
   --font-size-title: 22px;
   --font-size-paragraph: 20px;
@@ -44,7 +44,7 @@
 
 .button:active {
   box-shadow: 4px 4px 12px 5px var(--color-shadow);
-  transition: ease all var(--transition-duration-min) ;
+  transition: ease all var(--transition-duration-min);
   background: var(--color-bluish-gray);
 }
 
@@ -94,15 +94,15 @@
 }
 
 .menu__list-item-link--active::after {
- position: absolute;
- content: "";
- height: 1px;
- width: 97%;
- border-radius: var(--border-radius-size-m);
- bottom: 0px;
- left: 50%;
- transform: translateX(-50%);
- background: var(--color-shade-of-the-sea);
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 97%;
+  border-radius: var(--border-radius-size-m);
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-shade-of-the-sea);
 }
 
 .content {
@@ -143,6 +143,7 @@
   font-size: var(--font-size-display);
   padding-top: var(--gap-size-m);
   padding-bottom: var(--gap-size-m);
+  white-space: nowrap;
 }
 
 .calculator__keyboard {
@@ -154,7 +155,6 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   padding-top: var(--gap-size-xxs);
-  
 }
 
 .calculator__keyboard-btn {
@@ -228,7 +228,7 @@
 }
 
 .settings__list-item {
- margin-top: var(--gap-size-m);
+  margin-top: var(--gap-size-m);
 }
 
 .settings__reset-btn {
@@ -263,5 +263,3 @@
   pointer-events: none;
   background-color: var(--color-shade-of-the-sea);
 }
-
-
