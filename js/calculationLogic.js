@@ -31,7 +31,6 @@ function getReversePolishNotation(expression) {
     }
     tokens.push(notFinishedTokens[i]);
   }
-  console.log(tokens)
   for (const token of tokens) {
     if (!isNaN(token)) {
       output.push(token);

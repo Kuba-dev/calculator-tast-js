@@ -41,7 +41,7 @@
           <section class="settings">
             <ul class="settings__list">
               <li class="settings__list-item">
-                <button class="settings__reset-btn button">reset</button>
+                <button class="settings__reset-btn button">Reset</button>
               </li>
               <li class="settings__list-item">
                 <button
@@ -49,14 +49,14 @@
                   data-theme="light"
                   id="light-theme-btn"
                 >
-                  light
+                  Light
                 </button>
                 <button
                   class="settings__change-theme-btn button"
                   data-theme="dark"
                   id="dark-theme-btn"
                 >
-                  dark
+                  Dark
                 </button>
               </li>
             </ul>
@@ -64,8 +64,16 @@
         </main>
       </div>
     </div>
+
+    <div id="modal" class="modal">
+      <div class="modal__content">
+        <p class="modal__text">You deleted the calculator history</p>
+        <button class="close-btn button">Close</button>
+      </div>
+    </div>
+
     <script type="module" src="js/settings.js"></script>
     <script type="module" src="js/const.js"></script>
-    <script type="module" src="js/signChangeLogic.js"></script>
+    <script type="module" src="js/modalHistory.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { setTheme } from "./stateSettingsTheme.js";
+import { setTheme } from "./setTheme.js";
 
 const theme = localStorage.getItem("theme");
 
