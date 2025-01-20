@@ -218,6 +218,7 @@
   margin-left: var(--gap-size-s);
   scrollbar-color: var(--color-blue) white;
   scrollbar-width: thin;
+  overflow-x: hidden;
 }
 
 .history__list-item {
@@ -227,6 +228,7 @@
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
   margin-right: var(--gap-size-s);
+  word-break: break-all;
   position: relative;
 }
 
