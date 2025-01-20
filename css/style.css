@@ -21,7 +21,9 @@
 
   --transition-duration-min: 0.2s;
   --transition-duration-max: 0.3s;
+ 
 
+  --gap-size-xxl: 55px;
   --gap-size-xl: 45px;
   --gap-size-default: 35px;
   --gap-size-m: 30px;
@@ -31,25 +33,38 @@
   --gap-size-xxxs: 10px;
   --gap-size-xxxxs: 5px;
   --gap-size-xxxxxs: 3px;
+  --gap-size-negative-s: -10px;
 
-  --content-size: 500px;
-  --display-size: 100px;
-  --keyboard-size: 400px;
-  --header-size: 80px;
-  --button-keyboard-calc-size: 60px;
-  --button-size-xl: 450px;
-  --button-size-xl-phone: 350px;
-  --button-size-x-phone: 300px;
-  --button-size-xxl-phone: 200px;
-  --button-size-m: 210px;
-  --button-size-m-phone: 160px;
-  --button-size-l-phone: 140px;
-  --button-size-xxxl-phone: 95px;
-  --button-height-size-m: 50px;
+  --size-xxxxxxl: 500px;
+  --size-xxxxxl: 450px;
+  --size-xxxxl: 400px;
+  --size-xxxl: 350px;
+  --size-xxl: 300px; 
+  --size-ll: 250px; 
+  --size-xl: 225px;
+  --size-l: 210px;
+  --size-m: 200px;
+  --size-s: 160px;
+  --size-xs: 140px;
+  --size-xxs: 100px;
+  --size-xxxs: 95px;
+  --size-xxxxs: 80px;
+  --size-xxxxxs: 60px;
+  --size-xxxxxxs: 55px;
+  --size-7xs: 50px;
+  --size-8xs: 40px;
+
+
+  --underline-thickness: 1px;
+  --underline-thickness-l: 2px;
+
+  --container-size: 970px;
+  --container-padding: 16px;
 
   --border-radius-size-m: 10px;
 
   --underline-width-default: 97%;
+  --underline-width-l: 90%;
 }
 
 .button:hover {
@@ -64,23 +79,23 @@
 }
 
 .container {
-  max-width: 970px;
+  max-width: var(--container-size);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
 }
 
 .app {
   margin-top: var(--gap-size-m);
-  border: 2px solid var(--color-dark-blue);
+  border: var(--underline-thickness-l) solid var(--color-dark-blue);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: var(--header-size);
+  height: var(--size-xxxxs);
   background-color: var(--color-dark-blue);
   border-bottom: none;
   position: relative;
@@ -111,7 +126,7 @@
 .menu__list-item-link--active::after {
  position: absolute;
  content: "";
- height: 1px;
+ height: var(--underline-thickness);
  width: var(--underline-width-default);;
  border-radius: var(--border-radius-size-m);
  bottom: 0px;
@@ -124,16 +139,16 @@
   display: flex;
   justify-content: center;
   border-top: none;
-  height: var(--content-size);
+  height: var(--size-xxxxxxl);
 }
 
 .content__setting {
   display: flex;
   justify-content: center;
   border-top: none;
-  height: var(--content-size);
-  margin-right: 35px;
-  margin-left: 35px;
+  height: var(--size-xxxxxxl);
+  margin-right: var(--gap-size-default);
+  margin-left: var(--gap-size-default);
 }
 
 .calculator {
@@ -141,14 +156,14 @@
 }
 
 .calculator__display {
-  height: var(--display-size);
+  height: var(--size-xxs);
   position: relative;
 }
 
 .calculator__display::after {
   position: absolute;
   content: "";
-  height: 1px;
+  height: var(--underline-thickness);
   width: var(--underline-width-default);;
   border-radius: var(--border-radius-size-m);
   bottom: 0px;
@@ -170,7 +185,7 @@
 }
 
 .calculator__keyboard {
-  height: var(--keyboard-size);
+  height: var(--size-xxxxl);
   display: grid;
   width: calc(100% - (var(--gap-size-default) * 2));
   margin-right: var(--gap-size-default);
@@ -186,10 +201,10 @@
 }
 
 .calculator__keyboard-btn {
-  width: var(--button-keyboard-calc-size);
-  height: var(--button-keyboard-calc-size);
+  width: var(--size-xxxxxs);
+  height: var(--size-xxxxxs);
   border-radius: var(--border-radius-size-m);
-  border: 1px solid var(--color-shade-of-the-sea);
+  border: var(--underline-thickness) solid var(--color-shade-of-the-sea);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-title);
@@ -207,7 +222,7 @@
   content: "";
   display: block;
   height: var(--underline-width-default);;
-  width: 1px;
+  width: var(--underline-thickness);
   border-radius: var(--border-radius-size-m);
   top: 50%;
   background: var(--color-shade-of-the-sea);
@@ -228,10 +243,10 @@
 .history__title::after {
   position: absolute;
   content: "";
-  height: 1px;
-  width: 90%;
+  height: var(--underline-thickness);
+  width: var(--underline-width-l);
   border-radius: var(--border-radius-size-m);
-  bottom: -10px;
+  bottom: var(--gap-size-negative-s);
   left: 50%;
   transform: translateX(-50%);
   background: var(--color-shade-of-the-sea);
@@ -261,10 +276,10 @@
 }
 
 .settings__reset-btn {
-  width: var(--button-size-xl);
-  height: var(--button-height-size-m);
+  width: var(--size-xxxxxl);
+  height: var(--size-7xs);
   border-radius: var(--border-radius-size-m);
-  border: 1px solid var(--color-shade-of-the-sea);
+  border: var(--underline-thickness) solid var(--color-shade-of-the-sea);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
@@ -273,10 +288,10 @@
 }
 
 .settings__change-theme-btn {
-  width: var(--button-size-m);
-  height: var(--button-height-size-m);
+  width: var(--size-l);
+  height: var(--size-7xs);
   border-radius: var(--border-radius-size-m);
-  border: 1px solid var(--color-shade-of-the-sea);
+  border: var(--underline-thickness) solid var(--color-shade-of-the-sea);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
@@ -286,7 +301,7 @@
 
 .settings__change-theme-btn--active {
   font-weight: var(--font-weight-title);
-  border: 2px solid;
+  border: var(--underline-thickness-l) solid;
   pointer-events: none;
   background-color: var(--color-shade-of-the-sea);
 }
@@ -320,17 +335,17 @@
   }
 
   .settings__reset-btn {
-    width: var(--button-size-xl-phone);
+    width: var(--size-xxxxxl-phone);
   }
 
   .settings__change-theme-btn {
-    width: var(--button-size-m-phone);
+    width: var(--size-s);
   }
 }
 
 @media (max-width: 500px) {
   .header {
-    height: 60px;
+    height: var(--size-xxxxxs);
   }
 
   .header__title {
@@ -343,7 +358,7 @@
   }
 
   .calculator__display {
-    height: 60px;
+    height: var(--size-xxxxxs);
   }
 
   .calculator__display-text {
@@ -358,21 +373,21 @@
     width: calc(100% - (var(--gap-size-xxxs) * 2));
     margin-left: var(--gap-size-xxxs);
     margin-right: var(--gap-size-xxxs);
-    grid-auto-rows: 55px;
-    max-height: 250px;
+    grid-auto-rows: var(--gap-size-xxl);
+    max-height: var(--size-ll);
     position: relative;
   }
 
   .calculator__keyboard-button {
     padding-top: var(--gap-size-xxs);
-    height: 55px;
+    height: var(--size-xxxxxxs);
   }
 
   .history::before {
     position: absolute;
     content: "";
-    height: 1px;
-    width: 97%;
+    height: var(--underline-thickness);
+    width: var(--underline-width-default);
     border-radius: var(--border-radius-size-m);
     top: 0px;
     left: 50%;
@@ -390,24 +405,24 @@
   }
 
   .calculator__keyboard-btn {
-    height: 40px;
-    width: 40px;
+    height: var(--size-8xs);
+    width: var(--size-8xs);
     font-size: var(--font-size-title-phone);
   }
   .settings__reset-btn {
-    width: var(--button-size-x-phone);
+    width: var(--size-xxl);
     font-size: var(--font-size-title-phone-l);
   }
 
   .settings__change-theme-btn {
-    width: var(--button-size-l-phone);
+    width: var(--size-xs);
     font-size: var(--font-size-title-phone-l);
   }
 }
 
 @media (max-width: 380px) {
   .header {
-    height: 50px;
+    height: var(--size-7xs);
   }
 
   .header__title {
@@ -433,24 +448,24 @@
     width: calc(100% - (var(--gap-size-xxxs) * 2));
     margin-left: var(--gap-size-xxxs);
     margin-right: var(--gap-size-xxxs);
-    grid-auto-rows: 50px;
-    max-height: 225px;
+    grid-auto-rows: var(--gap-size-xxl);
+    max-height: --size-xl;
     position: relative;
   }
 
   .calculator__keyboard-btn {
-    height: 40px;
-    width: 40px;
+    height: var(--size-8xs);
+    width: var(--size-8xs);
     font-size: var(--font-size-title-phone-xl);
   }  
   
   .settings__reset-btn {
-    width: var(--button-size-xxl-phone);
+    width: var(--size-m);
     font-size: var(--font-size-title-phone-xl);
   }
 
   .settings__change-theme-btn {
-    width: var(--button-size-xxxl-phone);
+    width: var(--size-xxxs);
     font-size: var(--font-size-title-phone-xl);
   }
   
