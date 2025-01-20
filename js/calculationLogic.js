@@ -18,19 +18,20 @@ function getReversePolishNotation(expression) {
   const output = [];
   const stack = [];
   const notFinishedTokens = expression.match(divisionIntoTokensRegex);
+  console.log(notFinishedTokens)
   const tokens = [];
 
   for (let i = 0; i < notFinishedTokens.length; i++) {
     if (notFinishedTokens[i] === "(" && notFinishedTokens[i + 1] === "-" && notFinishedTokens[i + 3] === ")") {
-      tokens.push(tokens[i]);
-      tokens.push(tokens[i + 1] + notFinishedTokens[i + 2]);
-      tokens.push(tokens[i + 3]);
+      tokens.push(notFinishedTokens[i]);
+      tokens.push(notFinishedTokens[i + 1] + notFinishedTokens[i + 2]);
+      tokens.push(notFinishedTokens[i + 3]);
       i += 3;
-      break;
+      continue;
     }
     tokens.push(notFinishedTokens[i]);
   }
-
+  console.log(tokens)
   for (const token of tokens) {
     if (!isNaN(token)) {
       output.push(token);
