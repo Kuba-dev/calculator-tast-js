@@ -7,6 +7,7 @@ import { changeSign } from "./utils/signChangeLogic.js";
 import { getCalcResult } from "./calculationLogic.js";
 import { isInvalidLine } from "./utils/zeroCheck.js";
 import { dotsCheck } from "./utils/dotsCheck.js";
+import { doubleDotsCheck } from "./utils/doubleDotsCheck.js";
 
 const display = document.querySelector(".calculator__display-text");
 const historyList = document.querySelector(".history__list");
@@ -37,6 +38,8 @@ export function handleClick(event) {
       display.textContent = display.textContent;
     } else if (isInvalidLine(display.textContent)) {
       display.textContent = key;
+    } else if (doubleDotsCheck(display.textContent, key)) {
+      display.textContent = display.textContent;
     } else {
       display.textContent += key;
     }
