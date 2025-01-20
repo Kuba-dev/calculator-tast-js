@@ -53,6 +53,8 @@ export function handleClick(event) {
       )
     ) {
       display.textContent = display.textContent.slice(0, -1) + key;
+    } else if (display.textContent === "") { 
+      display.textContent = display.textContent;
     } else if (isInvalidLine(display.textContent)) {
       display.textContent = key;
     }
@@ -60,7 +62,7 @@ export function handleClick(event) {
     if (
       !signOnTheKeyboard.includes(
         display.textContent[display.textContent.length - 1]
-      )
+      ) && !(display.textContent === "")
     ) {
       display.textContent += key;
     }
