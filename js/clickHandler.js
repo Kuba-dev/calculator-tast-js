@@ -22,12 +22,18 @@ export function handleClick(event) {
   const key = event.target.textContent;
 
   if (bracketsOnTheKeyboard.includes(key)) {
-    display.textContent += key;
+    if (isInvalidLine(display.textContent)) {
+      display.textContent = key;
+    } else {
+      display.textContent += key;
+    }
   }
 
   if (digitsOnTheKeyboard.includes(key)) {
     if (display.textContent === "0" && key !== ".") {
       display.textContent = key;
+    } else if (display.textContent[display.textContent.length - 1] === "." && key === ".") {
+      display.textContent = display.textContent;
     } else if (isInvalidLine(display.textContent)) {
       display.textContent = key;
     } else {
