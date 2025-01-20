@@ -32,3 +32,6 @@ export const extraSpacesRegex = /\s+/g;
 export const presenceDots = /\.\d+/;
 export const divisionByZeroPhrase = "You can't divide by zero!";
 export const phraseIncorrectExpression = "Incorrect expression!"
+export const lightThemeBtn = document.querySelector("#light-theme-btn");
+export const darkThemeBtn = document.querySelector("#dark-theme-btn");
+
