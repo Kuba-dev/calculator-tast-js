@@ -1,0 +1,25 @@
+:root {
+  --color-button-hover: #01262e;
+  --color-primary: #033540;
+  --color-button-active: #63898c;
+  --color-additional: #a7d1d2;
+  --color-second: #e0f4f5;
+  --color-shadow: #63898c33;
+  --color-background: #fff;
+}
+
+body {
+  transition: background-color 0.3s ease;
+  background-color: var(--color-background);
+}
+
+.button:hover {
+  background: var(--color-additional);
+  transition: all var(--transition-duration-min) ease;
+}
+
+.button:active {
+  box-shadow: 4px 4px 12px 5px var(--color-shadow);
+  transition: ease all var(--transition-duration-min);
+  background: var(--color-button-active);
+}

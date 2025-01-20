@@ -1,14 +1,15 @@
 :root {
-  --color-dark-blue: #033540;
-  --color-blue: #015366;
-  --color-bluish-gray: #63898C;
-  --color-shade-of-the-sea: #A7D1D2;
-  --color-light-blue: #E0F4F5;
+  --color-button-hover: #01262e;
+  --color-primary: #033540;
+  --color-button-active: #63898C;
+  --color-additional: #A7D1D2;
+  --color-second: #E0F4F5;
   --color-shadow: #63898C33;
+  --color-background: #fff;
 
   --font-size-title: 22px;
   --font-size-paragraph: 20px;
-  --font-size-display: var(--gap-size-m);
+  --font-size-display: 30px;
 
   --font-weight-title: 700;
   --font-weight-paragraph: 400;
@@ -38,14 +39,12 @@
 }
 
 .button:hover {
-  background: var(--color-shade-of-the-sea);
   transition: all var(--transition-duration-min) ease;
 }
 
 .button:active {
   box-shadow: 4px 4px 12px 5px var(--color-shadow);
-  transition: ease all var(--transition-duration-min) ;
-  background: var(--color-bluish-gray);
+  transition: ease all var(--transition-duration-min);
 }
 
 .container {
@@ -58,7 +57,7 @@
 
 .app {
   margin-top: var(--gap-size-m);
-  border: 2px solid var(--color-dark-blue);
+  border: 2px solid var(--color-primary);
 }
 
 .header {
@@ -66,7 +65,7 @@
   justify-content: space-between;
   align-items: center;
   height: var(--header-size);
-  background-color: var(--color-dark-blue);
+  background-color: var(--color-primary);
   border-bottom: none;
   position: relative;
 }
@@ -76,7 +75,7 @@
   font-weight: var(--font-weight-title);
   font-size: var(--font-size-title);
   margin-left: var(--gap-size-default);
-  color: var(--color-light-blue);
+  color: var(--color-second);
 }
 
 .menu__list {
@@ -89,7 +88,7 @@
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
   margin-left: var(--gap-size-default);
-  color: var(--color-light-blue);
+  color: var(--color-second);
   position: relative;
 }
 
@@ -102,7 +101,7 @@
  bottom: 0px;
  left: 50%;
  transform: translateX(-50%);
- background: var(--color-shade-of-the-sea);
+ background: var(--color-additional);
 }
 
 .content {
@@ -130,7 +129,7 @@
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-shade-of-the-sea);
+  background: var(--color-additional);
 }
 
 .calculator__display-text {
@@ -162,11 +161,11 @@
   width: var(--button-keyboard-calc-size);
   height: var(--button-keyboard-calc-size);
   border-radius: var(--border-radius-size-m);
-  border: 1px solid var(--color-shade-of-the-sea);
+  border: 1px solid var(--color-additional);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-title);
-  background: var(--color-light-blue);
+  background: var(--color-second);
   transition: all var(--transition-duration-max) ease;
 }
 
@@ -183,7 +182,7 @@
   width: 1px;
   border-radius: var(--border-radius-size-m);
   top: 50%;
-  background: var(--color-shade-of-the-sea);
+  background: var(--color-additional);
   transform: translateY(-50%);
 }
 
@@ -207,7 +206,7 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-shade-of-the-sea);
+  background: var(--color-additional);
 }
 
 .history__list {
@@ -236,11 +235,11 @@
   width: var(--button-size-xl);
   height: var(--button-height-size-m);
   border-radius: var(--border-radius-size-m);
-  border: 1px solid var(--color-shade-of-the-sea);
+  border: 1px solid var(--color-additional);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
-  background: var(--color-light-blue);
+  background: var(--color-second);
   transition: all var(--transition-duration-max) ease;
 }
 
@@ -249,11 +248,11 @@
   width: var(--button-size-m);
   height: var(--button-height-size-m);
   border-radius: var(--border-radius-size-m);
-  border: 1px solid var(--color-shade-of-the-sea);
+  border: 1px solid var(--color-additional);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
-  background: var(--color-light-blue);
+  background: var(--color-second);
   transition: all var(--transition-duration-min) ease;
 }
 
@@ -261,7 +260,7 @@
   font-weight: var(--font-weight-title);
   border: 2px solid;
   pointer-events: none;
-  background-color: var(--color-shade-of-the-sea);
+  background-color: var(--color-additional);
 }
 
 

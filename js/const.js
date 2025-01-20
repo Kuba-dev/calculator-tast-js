@@ -15,3 +15,5 @@ export const signOnTheKeyboard = ["*", "/", "-", "+", "%"];
 export const bracketsOnTheKeyboard = ["(", ")"];
 export const signChangeRegex = /^\(-.+\)$/; // (-X)
 export const reverseSignChangeRegex = /^\(-(.+?)\)$/; // (-(X))
+export const lightThemeBtn = document.querySelector("#light-theme-btn");
+export const darkThemeBtn = document.querySelector("#dark-theme-btn");

@@ -13,7 +13,9 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" id="switcher-id" href="">
   </head>
+  <script type="module" src="js/stateMainTheme.js"></script>
   <body>
     <div class="container">
       <div class="app">
@@ -21,13 +23,19 @@
           <h1 class="header__title">Calculator App</h1>
           <nav class="menu">
             <ul class="menu__list">
-              <li class="menu__list-item"> 
-                <a class="menu__list-item-link menu__list-item-link--active" href="#">Home</a>
+              <li class="menu__list-item">
+                <a
+                  class="menu__list-item-link menu__list-item-link--active"
+                  href="#"
+                  >Home</a
+                >
               </li>
               <li class="menu__list-item">
-                <a class="menu__list-item-link" href="settings.html">Settings</a>
+                <a class="menu__list-item-link" href="settings.html"
+                  >Settings</a
+                >
               </li>
-            </ul>  
+            </ul>
           </nav>
         </header>
 
@@ -62,10 +70,19 @@
               </div>
               <div class="calculator__keyboard-button">
                 <button class="calculator__keyboard-btn button" id="dot">.</button>
-                <button class="calculator__keyboard-btn button" id="left-parenthesis">(</button>
+                <button
+                  class="calculator__keyboard-btn button"
+                  id="left-parenthesis"
+                >(</button>
                 <button class="calculator__keyboard-btn button" id="zero">0</button>
-                <button class="calculator__keyboard-btn button" id="right parenthesis">)</button>
-                <button class="calculator__keyboard-btn button" id="clean-entry">CE</button>
+                <button
+                  class="calculator__keyboard-btn button"
+                  id="right parenthesis"
+                >)</button>
+                <button
+                  class="calculator__keyboard-btn button"
+                  id="clean-entry"
+                >CE</button>
               </div>
             </div>
           </section>
@@ -110,5 +127,6 @@
     <script type="module" src="js/const.js"></script>
     <script type="module" src="js/clickHandler.js"></script>
     <script type="module" src="js/signChangeLogic.js"></script>
+    <script type="module" src="js/clickHandlerChangeTheme.js"></script>
   </body>
 </html>
