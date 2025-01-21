@@ -272,6 +272,7 @@
   margin-right: var(--gap-size-s);
   word-break: break-all;
   position: relative;
+  cursor: pointer;
 }
 
 .settings__list-item {
