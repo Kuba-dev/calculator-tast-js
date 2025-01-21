@@ -4,26 +4,34 @@ import {
   divisionIntoTokensRegex,
   regexOpen,
   regexClose,
+  extraSpacesRegex,
+  precedence
 } from "./const.js";
 
 function addMultiplicationBetweenNumberAndParenthesis(expression) {
   let modifiedExpression = expression.replace(regexOpen, "$1 * (");
-  modifiedExpression = modifiedExpression.replace(regexClose, ")*$3");
-  return modifiedExpression.replace(/\s+/g, "");
+  modifiedExpression = modifiedExpression.replace(regexClose, ")*$2");
+  return modifiedExpression.replace(extraSpacesRegex, "");
 }
 
 function getReversePolishNotation(expression) {
   const output = [];
   const stack = [];
-  const precedence = {
-    "+": 1,
-    "-": 1,
-    "*": 2,
-    "/": 2,
-    "%": 2,
-    "(": 0,
-  };
-  const tokens = expression.match(divisionIntoTokensRegex);
+  const notFinishedTokens = expression.match(divisionIntoTokensRegex);
+  console.log(notFinishedTokens)
+  const tokens = [];
+
+  for (let i = 0; i < notFinishedTokens.length; i++) {
+    if (notFinishedTokens[i] === "(" && notFinishedTokens[i + 1] === "-" && notFinishedTokens[i + 3] === ")") {
+      tokens.push(notFinishedTokens[i]);
+      tokens.push(notFinishedTokens[i + 1] + notFinishedTokens[i + 2]);
+      tokens.push(notFinishedTokens[i + 3]);
+      i += 3;
+      continue;
+    }
+    tokens.push(notFinishedTokens[i]);
+  }
+  console.log(tokens)
   for (const token of tokens) {
     if (!isNaN(token)) {
       output.push(token);
@@ -86,6 +94,7 @@ function calcReversePolishNotation(rpn) {
     }
   }
   if (stack.length !== 1 || isNaN(stack[0])) {
+    console.log(stack)
     return phraseIncorrectExpression;
   }
   return stack[0];

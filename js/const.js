@@ -13,11 +13,25 @@ export const digitsOnTheKeyboard = [
 ];
 export const signOnTheKeyboard = ["*", "/", "-", "+", "%"];
 export const bracketsOnTheKeyboard = ["(", ")"];
+export const precedence = {
+  "+": 1,
+  "-": 1,
+  "*": 2,
+  "/": 2,
+  "%": 2,
+  "(": 0,
+};
 export const signChangeRegex = /^\(-.+\)$/; // (-X)
 export const reverseSignChangeRegex = /^\(-(.+?)\)$/; // (-(X))
 export const negativeSignChangeRegex = /^-\d+$/; // -X
-export const divisionIntoTokensRegex = /-?\d+(\.\d+)?|[+*/%()-]/g;
+export const divisionIntoTokensRegex = /\d+(\.\d+)?|[+*/%()-]/g;
+export const divisionIntoNumbers = /[\-\+\*\/%()]/g;
 export const regexOpen = /(\d+)\(/g; 
 export const regexClose = /(\))(\d+)/g;
-export const divisionByZeroPhrase = "Делить на ноль нельзя!";
-export const phraseIncorrectExpression = "Некорректное выражение!"
+export const extraSpacesRegex = /\s+/g;
+export const presenceDots = /\.\d+/;
+export const divisionByZeroPhrase = "You can't divide by zero!";
+export const phraseIncorrectExpression = "Incorrect expression!"
+export const lightThemeBtn = document.querySelector("#light-theme-btn");
+export const darkThemeBtn = document.querySelector("#dark-theme-btn");
+

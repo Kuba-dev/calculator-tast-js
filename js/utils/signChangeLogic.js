@@ -1,4 +1,4 @@
-import { signOnTheKeyboard, signChangeRegex, reverseSignChangeRegex, negativeSignChangeRegex } from "./const.js";
+import { signOnTheKeyboard, signChangeRegex, reverseSignChangeRegex, negativeSignChangeRegex } from "../const.js";
 
 export function changeSign(string) {
   if (signOnTheKeyboard.includes(string[string.length - 1])) {

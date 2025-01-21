@@ -1,14 +1,13 @@
 import {
   digitsOnTheKeyboard,
   signOnTheKeyboard,
-  bracketsOnTheKeyboard,
-  phraseIncorrectExpression,
-  divisionByZeroPhrase,
+  bracketsOnTheKeyboard
 } from "./const.js";
-import { changeSign } from "./signChangeLogic.js";
-import {
-  getCalcResult
-} from "./calculationLogic.js";
+import { changeSign } from "./utils/signChangeLogic.js";
+import { getCalcResult } from "./calculationLogic.js";
+import { isInvalidLine } from "./utils/zeroCheck.js";
+import { dotsCheck } from "./utils/dotsCheck.js";
+import { doubleDotsCheck } from "./utils/doubleDotsCheck.js";
 
 const display = document.querySelector(".calculator__display-text");
 const historyList = document.querySelector(".history__list");
@@ -25,17 +24,22 @@ export function handleClick(event) {
   const key = event.target.textContent;
 
   if (bracketsOnTheKeyboard.includes(key)) {
-    display.textContent += key;
+    if (isInvalidLine(display.textContent)) {
+      display.textContent = key;
+    } else {
+      display.textContent += key;
+    }
   }
 
   if (digitsOnTheKeyboard.includes(key)) {
     if (display.textContent === "0" && key !== ".") {
       display.textContent = key;
-    } else if (
-      display.textContent === phraseIncorrectExpression ||
-      display.textContent === divisionByZeroPhrase
-    ) {
+    } else if ((display.textContent[display.textContent.length - 1] === "." && key === ".") || dotsCheck(display.textContent, key)) {
+      display.textContent = display.textContent;
+    } else if (isInvalidLine(display.textContent)) {
       display.textContent = key;
+    } else if (doubleDotsCheck(display.textContent, key)) {
+      display.textContent = display.textContent;
     } else {
       display.textContent += key;
     }
@@ -49,12 +53,16 @@ export function handleClick(event) {
       )
     ) {
       display.textContent = display.textContent.slice(0, -1) + key;
+    } else if (display.textContent === "") { 
+      display.textContent = display.textContent;
+    } else if (isInvalidLine(display.textContent)) {
+      display.textContent = key;
     }
 
     if (
       !signOnTheKeyboard.includes(
         display.textContent[display.textContent.length - 1]
-      )
+      ) && !(display.textContent === "")
     ) {
       display.textContent += key;
     }
@@ -62,10 +70,7 @@ export function handleClick(event) {
 
   switch (key) {
     case "C":
-      if (
-        display.textContent === phraseIncorrectExpression ||
-        display.textContent === divisionByZeroPhrase
-      ) {
+      if (isInvalidLine(display.textContent)) {
         display.textContent = "";
       } else {
         display.textContent = display.textContent.slice(0, -1);
