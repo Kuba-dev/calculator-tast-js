@@ -7,7 +7,6 @@
   --color-shadow: #63898C33;
   --color-background: #fff;
 
-
   --font-size-title: 22px;
   --font-size-title-phone: 16px;
   --font-size-title-phone-xl: 12px;
@@ -77,7 +76,7 @@
 .button:active {
   box-shadow: 4px 4px 12px 5px var(--color-shadow);
   transition: ease all var(--transition-duration-min);
-  background: var(--color-bluish-gray);
+  background: var(--color-button-active);
 }
 
 .container {
@@ -90,7 +89,7 @@
 
 .app {
   margin-top: var(--gap-size-m);
-  border: var(--underline-thickness-l) solid var(--color-dark-blue);
+  border: var(--underline-thickness-l) solid var(--color-primary);
 }
 
 .header {
@@ -98,7 +97,7 @@
   justify-content: space-between;
   align-items: center;
   height: var(--size-xxxxs);
-  background-color: var(--color-dark-blue);
+  background-color: var(--color-primary);
   border-bottom: none;
   position: relative;
 }
@@ -206,7 +205,7 @@
   width: var(--size-xxxxxs);
   height: var(--size-xxxxxs);
   border-radius: var(--border-radius-size-m);
-  border: var(--underline-thickness) solid var(--color-shade-of-the-sea);
+  border: var(--underline-thickness) solid var(--color-additional);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-title);
@@ -259,7 +258,7 @@
   height: calc(95% - var(--gap-size-default));
   margin-top: var(--gap-size-xs);
   margin-left: var(--gap-size-s);
-  scrollbar-color: var(--color-blue) white;
+  scrollbar-color: var(--color-primary) white;
   scrollbar-width: thin;
   overflow-x: hidden;
 }
@@ -285,7 +284,7 @@
   width: var(--size-xxxxxl);
   height: var(--size-7xs);
   border-radius: var(--border-radius-size-m);
-  border: var(--underline-thickness) solid var(--color-shade-of-the-sea);
+  border: var(--underline-thickness) solid var(--color-additional);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
@@ -297,7 +296,7 @@
   width: var(--size-l);
   height: var(--size-7xs);
   border-radius: var(--border-radius-size-m);
-  border: var(--underline-thickness) solid var(--color-shade-of-the-sea);
+  border: var(--underline-thickness) solid var(--color-additional);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
   font-size: var(--font-size-paragraph);
@@ -314,7 +313,7 @@
 
 @media (hover: hover) {
   button:hover{
-    background: var(--color-shade-of-the-sea);
+    background: var(--color-additional);
   }
 }
 
@@ -341,7 +340,7 @@
   }
 
   .settings__reset-btn {
-    width: var(--size-xxxxxl-phone);
+    width: var(--size-xxxl);
   }
 
   .settings__change-theme-btn {
@@ -398,7 +397,7 @@
     top: 0px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-shade-of-the-sea);
+    background: var(--color-additional);
   }
 
   .history__title {
