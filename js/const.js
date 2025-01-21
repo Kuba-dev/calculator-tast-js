@@ -35,4 +35,4 @@ export const phraseIncorrectExpression = "Incorrect expression!"
 export const lightThemeBtn = document.querySelector("#light-theme-btn");
 export const darkThemeBtn = document.querySelector("#dark-theme-btn");
 export const historyList = document.querySelector(".history__list");
-
+export const historyItemTemplate = `<li class="history__list-item"></li>`

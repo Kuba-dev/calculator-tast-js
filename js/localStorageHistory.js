@@ -1,24 +1,22 @@
 import { historyList } from "./const.js";
+import { getTemplateHistoryItem } from "./utils/getTemplateHistoryItem.js";
 
-if (document.querySelector('.history__list-item') == null) {
+if (document.querySelector('.history__list-item') == null && document.querySelector('.history__list')) {
     const historyItems = JSON.parse(localStorage.getItem("history"));
-    for (const key in historyItems) {
-        if (historyItems.length === historyItems[key]) {
-            break;
-        } else if (historyList) {
-            historyList.innerHTML += historyItems[key];
+    if (historyItems) {
+        for (let elem of historyItems) {
+            historyList.innerHTML += getTemplateHistoryItem(elem.expression, elem.result);
         }
     }
 }
 
-export function addLocalStorageHistory(elem) {
-    let historyList = JSON.parse(localStorage.getItem("history"));
+export function addLocalStorageHistory(expression, result) {
+    const historyList = JSON.parse(localStorage.getItem("history"));
     if (historyList == null) {
-        let historyObj = JSON.stringify({0: elem, "length": 1});
+        const historyObj = JSON.stringify([{"expression": expression, "result": result}]);
         localStorage.setItem("history", historyObj)
     } else {
-        historyList[historyList.length] = elem;
-        historyList.length += 1;
+        historyList.push({"expression": expression, "result": result})
         localStorage.setItem("history", JSON.stringify(historyList));
     }
 }

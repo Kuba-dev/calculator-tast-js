@@ -39,7 +39,7 @@
 }
 
 .modal {
-  display: flex;
+  display: none;
   width: 300px;
   height: 100px;
   position: fixed;
@@ -53,9 +53,13 @@
   transition: transform 1s;
 }
 
+.modal-open {
+  display: flex;
+}
+
 .animate {
-    transform: translateY(0);
-    animation: ani 0.5s forwards;
+  transform: translateY(0);
+  animation: ani 0.5s forwards;
 }
 
 @keyframes ani {
