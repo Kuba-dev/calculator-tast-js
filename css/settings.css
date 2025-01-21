@@ -1,0 +1,103 @@
+:root {
+  --color-button-hover: #01262e;
+  --color-primary: #033540;
+  --color-button-active: #63898c;
+  --color-additional: #a7d1d2;
+  --color-second: #e0f4f5;
+  --color-shadow: #63898c33;
+  --color-background: #fff;
+
+  --font-size-title: 22px;
+  --font-size-paragraph: 20px;
+  --font-size-display: 30px;
+
+  --font-weight-title: 700;
+  --font-weight-paragraph: 400;
+
+  --font-family-default: "Open Sans", serif;
+
+  --transition-duration-min: 0.2s;
+  --transition-duration-max: 0.3s;
+
+  --gap-size-default: 35px;
+  --gap-size-m: 30px;
+  --gap-size-s: 25px;
+  --gap-size-xs: 20px;
+  --gap-size-xxs: 15px;
+  --gap-size-xxxs: 10px;
+
+  --content-size: 500px;
+  --display-size: 100px;
+  --keyboard-size: 400px;
+  --header-size: 80px;
+  --button-keyboard-calc-size: 60px;
+  --button-size-xl: 450px;
+  --button-size-m: 210px;
+  --button-height-size-m: 50px;
+
+  --border-radius-size-m: 10px;
+}
+
+.modal {
+  display: none;
+  width: 300px;
+  height: 100px;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: var(--color-primary);
+  border-top-left-radius: 10px;
+  transform: translateX(150%);
+  transition: transform 1s;
+}
+
+.modal-open {
+  display: flex;
+}
+
+.animate {
+  transform: translateY(0);
+  animation: ani 0.5s forwards;
+}
+
+@keyframes ani {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.modal__content {
+  position: relative;
+  flex: 1;
+  top: 0px;
+  bottom: 0px;
+  margin: var(--gap-size-xxxs) var(--gap-size-xxxs) var(--gap-size-xxxs)
+    var(--gap-size-xxxs);
+}
+
+.close-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 100px;
+  height: 35px;
+  border-radius: var(--border-radius-size-m);
+  border: 2px solid var(--color-additional);
+  font-family: var(--font-family-default);
+  font-weight: var(--font-weight-paragraph);
+  font-size: var(--font-size-title);
+  background-color: var(--color-second);
+  transition: all var(--transition-duration-max) ease;
+}
+
+.modal__text {
+  font-family: var(--font-family-default);
+  font-weight: var(--font-weight-paragraph);
+  font-size: var(--font-size-m);
+  color: var(--color-second);
+}
