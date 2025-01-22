@@ -11,7 +11,7 @@ import { dotsCheck } from "./utils/dotsCheck.js";
 import { doubleDotsCheck } from "./utils/doubleDotsCheck.js";
 import { addHistory } from "./historyCalc.js";
 
-
+let isResultFlag = false;
 export function handleClick(event) {
   if (
     event.target.classList[0] ===
@@ -24,68 +24,84 @@ export function handleClick(event) {
   const key = event.target.textContent;
 
   if (bracketsOnTheKeyboard.includes(key)) {
-    if (isInvalidLine(display.textContent)) {
-      display.textContent = key;
+    isResultFlag = false;
+    if (isInvalidLine(display.value)) {
+      display.value = key;
     } else {
-      display.textContent += key;
+      display.value += key;
     }
   }
 
   if (digitsOnTheKeyboard.includes(key)) {
-    if (display.textContent === "0" && key !== ".") {
-      display.textContent = key;
-    } else if ((display.textContent[display.textContent.length - 1] === "." && key === ".") || dotsCheck(display.textContent, key)) {
-      display.textContent = display.textContent;
-    } else if (isInvalidLine(display.textContent)) {
-      display.textContent = key;
-    } else if (doubleDotsCheck(display.textContent, key)) {
-      display.textContent = display.textContent;
+    if (display.value === "0" && key !== ".") {
+      display.value = key;
+    } else if ((display.value[display.value.length - 1] === "." && key === ".") || dotsCheck(display.value, key)) {
+      display.value = display.value;
+    } else if (isInvalidLine(display.value)) {
+      display.value = key;
+    } else if (doubleDotsCheck(display.value, key)) {
+      display.value = display.value;
+    } else if (isResultFlag) {
+      display.value = key;
+      isResultFlag = false;
     } else {
-      display.textContent += key;
+      display.value += key;
     }
   }
 
   if (signOnTheKeyboard.includes(key)) {
+    isResultFlag = false;
     if (
-      key !== display.textContent[display.textContent.length - 1] &&
+      key !== display.value[display.value.length - 1] &&
       signOnTheKeyboard.includes(
-        display.textContent[display.textContent.length - 1]
+        display.value[display.value.length - 1]
       )
     ) {
-      display.textContent = display.textContent.slice(0, -1) + key;
-    } else if (display.textContent === "") { 
-      display.textContent = display.textContent;
-    } else if (isInvalidLine(display.textContent)) {
-      display.textContent = key;
+      display.value = display.value.slice(0, -1) + key;
+    } else if (display.value === "") { 
+      display.value = `0${key}`;
+    } else if (isInvalidLine(display.value)) {
+      display.value = key;
     }
 
     if (
       !signOnTheKeyboard.includes(
-        display.textContent[display.textContent.length - 1]
-      ) && !(display.textContent === "")
+        display.value[display.value.length - 1]
+      ) && !(display.value === "")
     ) {
-      display.textContent += key;
+      display.value += key;
     }
   }
 
   switch (key) {
     case "C":
-      if (isInvalidLine(display.textContent)) {
-        display.textContent = "";
+      if (isInvalidLine(display.value)) {
+        display.value = "";
+      } else if (isResultFlag) {
+        display.value = "";
+        isResultFlag = false;
+      } else if (display.value.length === 1) {
+        display.value = "";
       } else {
-        display.textContent = display.textContent.slice(0, -1);
+        display.value = display.value.slice(0, -1);
       }
       break;
     case "CE":
-      display.innerHTML = "";
+      if (isResultFlag) {
+        display.value = "";
+        isResultFlag = false;
+      } else {
+        display.value = "";
+      }
       break;
     case "=":
-      const result = getCalcResult(display.textContent);
-      addHistory(display.textContent, result);
-      display.textContent = result;
+      const result = getCalcResult(display.value);
+      addHistory(display.value, result);
+      display.value = result;
+      isResultFlag = true;
       break;
     case "+-":
-      display.textContent = changeSign(display.textContent);
+      display.value = changeSign(display.value);
       break;
     default:
       break;

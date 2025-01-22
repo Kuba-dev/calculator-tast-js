@@ -6,5 +6,5 @@ export function returnHistory(event) {
     historyList.classList[0]
   )
     return;
-  display.textContent = event.target.textContent.split("=")[0].trim();
+  display.value = event.target.textContent.split("=")[0].trim();
 }
