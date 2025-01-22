@@ -1,7 +1,8 @@
 import {
   digitsOnTheKeyboard,
   signOnTheKeyboard,
-  bracketsOnTheKeyboard
+  bracketsOnTheKeyboard,
+  display
 } from "./const.js";
 import { changeSign } from "./utils/signChangeLogic.js";
 import { getCalcResult } from "./calculationLogic.js";
@@ -10,7 +11,6 @@ import { dotsCheck } from "./utils/dotsCheck.js";
 import { doubleDotsCheck } from "./utils/doubleDotsCheck.js";
 import { addHistory } from "./historyCalc.js";
 
-const display = document.querySelector(".calculator__display-text");
 
 export function handleClick(event) {
   if (
