@@ -8,3 +8,5 @@ document
 document
   .querySelector(".history__list")
   .addEventListener("click", returnHistory);
+
+document.querySelector(".calculator__display-text").addEventListener('keydown', event => event.preventDefault());
