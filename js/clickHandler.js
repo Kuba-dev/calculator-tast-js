@@ -11,7 +11,7 @@ import { dotsCheck } from "./utils/dotsCheck.js";
 import { doubleDotsCheck } from "./utils/doubleDotsCheck.js";
 import { addHistory } from "./historyCalc.js";
 
-
+let isResultFlag = false;
 export function handleClick(event) {
   if (
     event.target.classList[0] ===
@@ -24,6 +24,7 @@ export function handleClick(event) {
   const key = event.target.textContent;
 
   if (bracketsOnTheKeyboard.includes(key)) {
+    isResultFlag = false;
     if (isInvalidLine(display.textContent)) {
       display.textContent = key;
     } else {
@@ -40,12 +41,16 @@ export function handleClick(event) {
       display.textContent = key;
     } else if (doubleDotsCheck(display.textContent, key)) {
       display.textContent = display.textContent;
+    } else if (isResultFlag) {
+      display.textContent = key;
+      isResultFlag = false;
     } else {
       display.textContent += key;
     }
   }
 
   if (signOnTheKeyboard.includes(key)) {
+    isResultFlag = false;
     if (
       key !== display.textContent[display.textContent.length - 1] &&
       signOnTheKeyboard.includes(
@@ -53,7 +58,7 @@ export function handleClick(event) {
       )
     ) {
       display.textContent = display.textContent.slice(0, -1) + key;
-    } else if (display.textContent === "") { 
+    } else if (display.textContent === "0") { 
       display.textContent = display.textContent;
     } else if (isInvalidLine(display.textContent)) {
       display.textContent = key;
@@ -71,18 +76,29 @@ export function handleClick(event) {
   switch (key) {
     case "C":
       if (isInvalidLine(display.textContent)) {
-        display.textContent = "";
+        display.textContent = "0";
+      } else if (isResultFlag) {
+        display.textContent = "0";
+        isResultFlag = false;
+      } else if (display.textContent.length === 1) {
+        display.textContent = "0";
       } else {
         display.textContent = display.textContent.slice(0, -1);
       }
       break;
     case "CE":
-      display.innerHTML = "";
+      if (isResultFlag) {
+        display.textContent = "0";
+        isResultFlag = false;
+      } else {
+        display.innerHTML = "0";
+      }
       break;
     case "=":
       const result = getCalcResult(display.textContent);
       addHistory(display.textContent, result);
       display.textContent = result;
+      isResultFlag = true;
       break;
     case "+-":
       display.textContent = changeSign(display.textContent);
