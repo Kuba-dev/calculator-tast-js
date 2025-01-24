@@ -159,6 +159,9 @@
 .calculator__display {
   height: var(--size-xxs);
   position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: end;
 }
 
 .calculator__display::after {
@@ -174,9 +177,9 @@
 }
 
 .calculator__display-text {
-  overflow: hidden;
+  width: 100%;
+  text-align: end;
   display: flex;
-  justify-content: flex-end;
   margin: 0 var(--gap-size-m) 0 var(--gap-size-m);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-paragraph);
