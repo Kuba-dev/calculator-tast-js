@@ -7,6 +7,7 @@ import {
   extraSpacesRegex,
   precedence
 } from "./const.js";
+import { replacingMinusBeforeBrakets } from "./utils/replacingMinusBeforeBrakets.js";
 
 function addMultiplicationBetweenNumberAndParenthesis(expression) {
   let modifiedExpression = expression.replace(regexOpen, "$1 * (");
@@ -18,8 +19,8 @@ function getReversePolishNotation(expression) {
   const output = [];
   const stack = [];
   const notFinishedTokens = expression.match(divisionIntoTokensRegex);
-  console.log(notFinishedTokens)
   const tokens = [];
+
 
   for (let i = 0; i < notFinishedTokens.length; i++) {
     if (notFinishedTokens[i] === "(" && notFinishedTokens[i + 1] === "-" && notFinishedTokens[i + 3] === ")") {
@@ -102,7 +103,7 @@ function calcReversePolishNotation(rpn) {
 export function getCalcResult(expression) {
   let result = calcReversePolishNotation(
     getReversePolishNotation(
-      addMultiplicationBetweenNumberAndParenthesis(expression)
+      addMultiplicationBetweenNumberAndParenthesis(replacingMinusBeforeBrakets(expression))
     )
   );
   if (!isNaN(result)) {
